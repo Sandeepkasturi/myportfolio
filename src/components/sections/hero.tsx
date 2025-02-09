@@ -5,16 +5,16 @@ import { TypeAnimation } from "react-type-animation";
 
 export const Hero = () => {
   const colors = [
-    "#9b87f5", // Primary Purple
-    "#7E69AB", // Secondary Purple
     "#8B5CF6", // Vivid Purple
     "#D946EF", // Magenta Pink
     "#F97316", // Bright Orange
     "#0EA5E9", // Ocean Blue
-    "#1EAEDB", // Bright Blue
-    "#F2FCE2", // Soft Green
-    "#FEF7CD", // Soft Yellow
-    "#FFDEE2", // Soft Pink
+    "linear-gradient(to right, #ee9ca7, #ffdde1)",
+    "linear-gradient(225deg, #FFE29F 0%, #FFA99F 48%, #FF719A 100%)",
+    "linear-gradient(to right, #ffc3a0 0%, #ffafbd 100%)",
+    "#9b87f5", // Primary Purple
+    "linear-gradient(90deg, hsla(24, 100%, 83%, 1) 0%, hsla(341, 91%, 68%, 1) 100%)",
+    "linear-gradient(90deg, rgb(245,152,168) 0%, rgb(246,237,178) 100%)"
   ];
 
   return (
@@ -69,10 +69,14 @@ export const Hero = () => {
                 speed={50}
                 style={{ 
                   display: "inline-block",
-                  color: colors[Math.floor(Math.random() * colors.length)]
+                  backgroundImage: colors[Math.floor(Math.random() * colors.length)],
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
+                  backgroundSize: "100%",
+                  backgroundClip: "text"
                 }}
                 repeat={Infinity}
-                className="transition-colors duration-300"
+                className="transition-all duration-300"
                 cursor={true}
               />
             </span>
