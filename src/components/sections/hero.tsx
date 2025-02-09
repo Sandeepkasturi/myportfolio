@@ -64,12 +64,20 @@ export const Hero = () => {
                 sequence={[
                   "Sandeep Kasturi", 1000,
                   "", 200,
+                  "Sandeep Kasturi", 1000,
+                  "", 200,
+                  "Sandeep Kasturi", 1000,
+                  "", 200,
+                  "Sandeep Kasturi", 1000,
+                  "", 200,
+                  "Sandeep Kasturi", 1000,
+                  "", 200,
                 ]}
                 wrapper="span"
                 speed={50}
                 style={{ 
                   display: "inline-block",
-                  backgroundImage: colors[Math.floor(Math.random() * colors.length)],
+                  backgroundImage: colors[Math.floor(Math.random() * 5)], // Only use first 5 colors
                   WebkitBackgroundClip: "text",
                   WebkitTextFillColor: "transparent",
                   backgroundSize: "100%",
