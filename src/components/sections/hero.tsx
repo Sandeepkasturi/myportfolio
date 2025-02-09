@@ -5,16 +5,16 @@ import { TypeAnimation } from "react-type-animation";
 
 export const Hero = () => {
   const colors = [
-    "#1A1F2C", // Deep Navy
-    "linear-gradient(to right, #2C3E50, #3498DB)", // Dark Blue Gradient
-    "#403E43", // Dark Charcoal
-    "linear-gradient(225deg, #434343 0%, #000000 100%)", // Black Gradient
-    "#222222", // Rich Dark Gray
-    "linear-gradient(to right, #232526, #414345)", // Gunmetal Gradient
-    "#333333", // Deep Charcoal
-    "linear-gradient(90deg, #3A1C71, #D76D77)", // Deep Purple to Dark Rose
-    "#0F172A", // Slate Dark
-    "linear-gradient(90deg, #1A1A1A, #434343)" // Dark Gray Gradient
+    "#8B5CF6", // Vivid Purple
+    "#D946EF", // Magenta Pink
+    "#F97316", // Bright Orange
+    "#0EA5E9", // Ocean Blue
+    "linear-gradient(to right, #ee9ca7, #ffdde1)",
+    "linear-gradient(225deg, #FFE29F 0%, #FFA99F 48%, #FF719A 100%)",
+    "linear-gradient(to right, #ffc3a0 0%, #ffafbd 100%)",
+    "#9b87f5", // Primary Purple
+    "linear-gradient(90deg, hsla(24, 100%, 83%, 1) 0%, hsla(341, 91%, 68%, 1) 100%)",
+    "linear-gradient(90deg, rgb(245,152,168) 0%, rgb(246,237,178) 100%)"
   ];
 
   return (
@@ -64,20 +64,12 @@ export const Hero = () => {
                 sequence={[
                   "Sandeep Kasturi", 1000,
                   "", 200,
-                  "Sandeep Kasturi", 1000,
-                  "", 200,
-                  "Sandeep Kasturi", 1000,
-                  "", 200,
-                  "Sandeep Kasturi", 1000,
-                  "", 200,
-                  "Sandeep Kasturi", 1000,
-                  "", 200,
                 ]}
                 wrapper="span"
                 speed={50}
                 style={{ 
                   display: "inline-block",
-                  backgroundImage: colors[Math.floor(Math.random() * 5)], // Only use first 5 colors
+                  backgroundImage: colors[Math.floor(Math.random() * colors.length)],
                   WebkitBackgroundClip: "text",
                   WebkitTextFillColor: "transparent",
                   backgroundSize: "100%",
