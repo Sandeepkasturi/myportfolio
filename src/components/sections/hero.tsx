@@ -61,22 +61,19 @@ export const Hero = () => {
             Hi, I'm{" "}
             <span className="inline-block">
               <TypeAnimation
-                sequence={colors.map((color, index) => [
-                  "Sandeep Kasturi",
-                  1000,
-                  "",
-                  200,
-                ]).flat()}
+                sequence={[
+                  "Sandeep Kasturi", 1000,
+                  "", 200,
+                ]}
                 wrapper="span"
                 speed={50}
-                style={{ display: "inline-block" }}
+                style={{ 
+                  display: "inline-block",
+                  color: colors[Math.floor(Math.random() * colors.length)]
+                }}
                 repeat={Infinity}
                 className="transition-colors duration-300"
                 cursor={true}
-                preRenderFirstString={false}
-                customStyle={{
-                  color: colors[Math.floor(Math.random() * colors.length)],
-                }}
               />
             </span>
           </h1>
