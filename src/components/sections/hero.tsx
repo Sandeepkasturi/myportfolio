@@ -1,10 +1,21 @@
 
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { TypeAnimation } from "react-type-animation";
+import { useState, useEffect } from "react";
 
 export const Hero = () => {
-  const colors = [
+  const [colorIndex, setColorIndex] = useState(0);
+
+  const gradientColors = [
+    "linear-gradient(to right, #243949 0%, #517fa4 100%)",
+    "linear-gradient(to right, #1A1F2C 0%, #403E43 100%)",
+    "linear-gradient(90deg, hsla(221, 45%, 73%, 1) 0%, hsla(220, 78%, 29%, 1) 100%)",
+    "linear-gradient(to right, #2C3E50, #3498DB)",
+    "linear-gradient(to right, #232526, #414345)",
+  ];
+
+  const backgroundGradients = [
     "#8B5CF6", // Vivid Purple
     "#D946EF", // Magenta Pink
     "#F97316", // Bright Orange
@@ -17,32 +28,43 @@ export const Hero = () => {
     "linear-gradient(90deg, rgb(245,152,168) 0%, rgb(246,237,178) 100%)"
   ];
 
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setColorIndex((prevIndex) => (prevIndex + 1) % gradientColors.length);
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <section className="min-h-screen flex items-center justify-center bg-gradient-to-br from-background to-secondary/20 px-4 relative overflow-hidden">
-      {/* Animated background elements */}
+      {/* Enhanced animated background elements */}
       <motion.div
         className="absolute inset-0 z-0"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1 }}
       >
-        {[...Array(5)].map((_, i) => (
+        {[...Array(8)].map((_, i) => (
           <motion.div
             key={i}
             className="absolute rounded-full mix-blend-overlay filter blur-xl"
             animate={{
               x: ["0%", "100%", "0%"],
               y: ["0%", "100%", "0%"],
+              scale: [1, 1.2, 1],
+              rotate: [0, 180, 360],
             }}
             transition={{
-              duration: 15 + i * 2,
+              duration: 20 + i * 2,
               repeat: Infinity,
               ease: "linear",
+              times: [0, 0.5, 1],
             }}
             style={{
               width: `${200 + i * 100}px`,
               height: `${200 + i * 100}px`,
-              background: `radial-gradient(circle, ${colors[i]} 0%, transparent 70%)`,
+              background: `radial-gradient(circle, ${backgroundGradients[i]} 0%, transparent 70%)`,
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
             }}
@@ -69,11 +91,12 @@ export const Hero = () => {
                 speed={50}
                 style={{ 
                   display: "inline-block",
-                  backgroundImage: colors[Math.floor(Math.random() * colors.length)],
+                  backgroundImage: gradientColors[colorIndex],
                   WebkitBackgroundClip: "text",
                   WebkitTextFillColor: "transparent",
                   backgroundSize: "100%",
-                  backgroundClip: "text"
+                  backgroundClip: "text",
+                  transition: "all 0.5s ease-in-out"
                 }}
                 repeat={Infinity}
                 className="transition-all duration-300"
