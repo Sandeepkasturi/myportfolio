@@ -1,5 +1,5 @@
 
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { TypeAnimation } from "react-type-animation";
 import { useState, useEffect } from "react";
@@ -8,24 +8,11 @@ export const Hero = () => {
   const [colorIndex, setColorIndex] = useState(0);
 
   const gradientColors = [
-    "linear-gradient(to right, #1A1F2C 0%, #403E43 100%)",
-    "linear-gradient(to right, #232526, #414345)",
-    "linear-gradient(90deg, #2C3E50 0%, #3498DB 100%)",
-    "linear-gradient(to right, #243949 0%, #517fa4 100%)",
-    "linear-gradient(90deg, hsla(221, 45%, 33%, 1) 0%, hsla(220, 78%, 29%, 1) 100%)",
-  ];
-
-  const backgroundGradients = [
-    "#1A1F2C", // Dark Purple
-    "#403E43", // Dark Charcoal
-    "#222222", // Dark Gray
-    "#333333", // Dark Gray
-    "#555555", // Medium Gray
-    "linear-gradient(to right, #232526, #414345)",
-    "linear-gradient(225deg, #2C3E50 0%, #3498DB 100%)",
-    "linear-gradient(to right, #243949 0%, #517fa4 100%)",
-    "#2C3E50", // Dark Blue Gray
-    "linear-gradient(90deg, #1A1F2C 0%, #403E43 100%)"
+    "linear-gradient(to right, #4A90E2 0%, #50C9C3 100%)",
+    "linear-gradient(to right, #56ab2f, #a8e063)",
+    "linear-gradient(90deg, #00C9FF 0%, #92FE9D 100%)",
+    "linear-gradient(to right, #4facfe 0%, #00f2fe 100%)",
+    "linear-gradient(90deg, #1CB5E0 0%, #000851 100%)",
   ];
 
   useEffect(() => {
@@ -37,48 +24,9 @@ export const Hero = () => {
   }, []);
 
   return (
-    <section className="min-h-screen flex items-center justify-center bg-gradient-to-br from-background to-secondary/20 px-4 relative overflow-hidden">
-      {/* Enhanced animated background elements */}
-      <motion.div
-        className="absolute inset-0 z-0"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1 }}
-      >
-        {[...Array(8)].map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute rounded-full mix-blend-overlay filter blur-xl"
-            animate={{
-              x: ["0%", "100%", "0%"],
-              y: ["0%", "100%", "0%"],
-              scale: [1, 1.2, 1],
-              rotate: [0, 180, 360],
-            }}
-            transition={{
-              duration: 20 + i * 2,
-              repeat: Infinity,
-              ease: "linear",
-              times: [0, 0.5, 1],
-            }}
-            style={{
-              width: `${200 + i * 100}px`,
-              height: `${200 + i * 100}px`,
-              background: `radial-gradient(circle, ${backgroundGradients[i]} 0%, transparent 70%)`,
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-            }}
-          />
-        ))}
-      </motion.div>
-
-      <div className="max-w-4xl mx-auto text-center z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="space-y-6"
-        >
+    <section className="min-h-screen flex items-center justify-center bg-white px-4 relative">
+      <div className="max-w-4xl mx-auto text-center">
+        <div className="space-y-6">
           <h1 className="text-4xl md:text-6xl font-bold mb-6">
             <span className="inline-block">
               <TypeAnimation
@@ -95,7 +43,6 @@ export const Hero = () => {
                   WebkitTextFillColor: "transparent",
                   backgroundSize: "100%",
                   backgroundClip: "text",
-                  transition: "all 0.5s ease-in-out"
                 }}
                 repeat={Infinity}
                 className="transition-all duration-300"
@@ -103,12 +50,7 @@ export const Hero = () => {
             </span>
           </h1>
 
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.3 }}
-            className="text-xl md:text-2xl text-foreground/80 mb-8 leading-relaxed"
-          >
+          <div className="text-xl md:text-2xl text-gray-700 mb-8 leading-relaxed">
             <TypeAnimation
               sequence={[
                 "Hello, I'm Sandeep Kasturi, the founder of SKAV TECH. Since 2020, I've been deeply immersed in AI technologies, beginning with Python, which ignited my passion for AI development. This journey led to the creation of SKAV, a no-code development platform that seamlessly integrates AI tools with the expertise of seasoned programmers. I specialize in prompt engineering to enhance SKAV's intelligence and capabilities.",
@@ -118,34 +60,18 @@ export const Hero = () => {
               style={{ display: "inline-block" }}
               repeat={0}
             />
-          </motion.div>
+          </div>
           
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.5 }}
-            className="flex gap-4 justify-center"
-          >
+          <div className="flex gap-4 justify-center">
             <a
               href="#contact"
-              className="group relative inline-flex items-center gap-2 bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-4 rounded-full transition-all duration-300 overflow-hidden shadow-lg hover:shadow-primary/50"
+              className="group inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-full transition-colors"
             >
-              <span className="relative z-10">Contact Me</span>
-              <ArrowRight className="relative z-10 group-hover:translate-x-1 transition-transform" />
-              <motion.div
-                className="absolute inset-0 bg-gradient-to-r from-primary via-accent to-primary"
-                animate={{
-                  x: ["0%", "100%"],
-                }}
-                transition={{
-                  duration: 3,
-                  repeat: Infinity,
-                  repeatType: "reverse",
-                }}
-              />
+              <span>Contact Me</span>
+              <ArrowRight className="group-hover:translate-x-1 transition-transform" />
             </a>
-          </motion.div>
-        </motion.div>
+          </div>
+        </div>
       </div>
     </section>
   );
