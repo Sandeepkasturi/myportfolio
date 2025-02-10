@@ -8,24 +8,24 @@ export const Hero = () => {
   const [colorIndex, setColorIndex] = useState(0);
 
   const gradientColors = [
-    "linear-gradient(to right, #243949 0%, #517fa4 100%)",
     "linear-gradient(to right, #1A1F2C 0%, #403E43 100%)",
-    "linear-gradient(90deg, hsla(221, 45%, 73%, 1) 0%, hsla(220, 78%, 29%, 1) 100%)",
-    "linear-gradient(to right, #2C3E50, #3498DB)",
     "linear-gradient(to right, #232526, #414345)",
+    "linear-gradient(90deg, #2C3E50 0%, #3498DB 100%)",
+    "linear-gradient(to right, #243949 0%, #517fa4 100%)",
+    "linear-gradient(90deg, hsla(221, 45%, 33%, 1) 0%, hsla(220, 78%, 29%, 1) 100%)",
   ];
 
   const backgroundGradients = [
-    "#8B5CF6", // Vivid Purple
-    "#D946EF", // Magenta Pink
-    "#F97316", // Bright Orange
-    "#0EA5E9", // Ocean Blue
-    "linear-gradient(to right, #ee9ca7, #ffdde1)",
-    "linear-gradient(225deg, #FFE29F 0%, #FFA99F 48%, #FF719A 100%)",
-    "linear-gradient(to right, #ffc3a0 0%, #ffafbd 100%)",
-    "#9b87f5", // Primary Purple
-    "linear-gradient(90deg, hsla(24, 100%, 83%, 1) 0%, hsla(341, 91%, 68%, 1) 100%)",
-    "linear-gradient(90deg, rgb(245,152,168) 0%, rgb(246,237,178) 100%)"
+    "#1A1F2C", // Dark Purple
+    "#403E43", // Dark Charcoal
+    "#222222", // Dark Gray
+    "#333333", // Dark Gray
+    "#555555", // Medium Gray
+    "linear-gradient(to right, #232526, #414345)",
+    "linear-gradient(225deg, #2C3E50 0%, #3498DB 100%)",
+    "linear-gradient(to right, #243949 0%, #517fa4 100%)",
+    "#2C3E50", // Dark Blue Gray
+    "linear-gradient(90deg, #1A1F2C 0%, #403E43 100%)"
   ];
 
   useEffect(() => {
@@ -80,12 +80,10 @@ export const Hero = () => {
           className="space-y-6"
         >
           <h1 className="text-4xl md:text-6xl font-bold mb-6">
-            Hi, I'm{" "}
             <span className="inline-block">
               <TypeAnimation
                 sequence={[
-                  "Sandeep Kasturi", 1000,
-                  "", 200,
+                  "Hello, I'm Sandeep Kasturi, the founder of SKAV TECH. Since 2020, I've been deeply immersed in AI technologies, beginning with Python, which ignited my passion for AI development. This journey led to the creation of SKAV, a no-code development platform that seamlessly integrates AI tools with the expertise of seasoned programmers. I specialize in prompt engineering to enhance SKAV's intelligence and capabilities.",
                 ]}
                 wrapper="span"
                 speed={50}
@@ -98,9 +96,8 @@ export const Hero = () => {
                   backgroundClip: "text",
                   transition: "all 0.5s ease-in-out"
                 }}
-                repeat={Infinity}
+                repeat={0}
                 className="transition-all duration-300"
-                cursor={true}
               />
             </span>
           </h1>
@@ -120,7 +117,7 @@ export const Hero = () => {
           >
             <a
               href="#contact"
-              className="group relative inline-flex items-center gap-2 bg-primary hover:bg-primary/90 text-white px-8 py-4 rounded-full transition-all duration-300 overflow-hidden shadow-lg hover:shadow-primary/50"
+              className="group relative inline-flex items-center gap-2 bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-4 rounded-full transition-all duration-300 overflow-hidden shadow-lg hover:shadow-primary/50"
             >
               <span className="relative z-10">Contact Me</span>
               <ArrowRight className="relative z-10 group-hover:translate-x-1 transition-transform" />
