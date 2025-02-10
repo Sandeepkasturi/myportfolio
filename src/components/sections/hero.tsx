@@ -83,7 +83,8 @@ export const Hero = () => {
             <span className="inline-block">
               <TypeAnimation
                 sequence={[
-                  "Hello, I'm Sandeep Kasturi, the founder of SKAV TECH. Since 2020, I've been deeply immersed in AI technologies, beginning with Python, which ignited my passion for AI development. This journey led to the creation of SKAV, a no-code development platform that seamlessly integrates AI tools with the expertise of seasoned programmers. I specialize in prompt engineering to enhance SKAV's intelligence and capabilities.",
+                  "Sandeep Kasturi",
+                  5000,
                 ]}
                 wrapper="span"
                 speed={50}
@@ -96,19 +97,29 @@ export const Hero = () => {
                   backgroundClip: "text",
                   transition: "all 0.5s ease-in-out"
                 }}
-                repeat={0}
+                repeat={Infinity}
                 className="transition-all duration-300"
               />
             </span>
           </h1>
-          <motion.p
+
+          <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.3 }}
             className="text-xl md:text-2xl text-foreground/80 mb-8 leading-relaxed"
           >
-            AI Enthusiast & Full Stack Developer
-          </motion.p>
+            <TypeAnimation
+              sequence={[
+                "Hello, I'm Sandeep Kasturi, the founder of SKAV TECH. Since 2020, I've been deeply immersed in AI technologies, beginning with Python, which ignited my passion for AI development. This journey led to the creation of SKAV, a no-code development platform that seamlessly integrates AI tools with the expertise of seasoned programmers. I specialize in prompt engineering to enhance SKAV's intelligence and capabilities.",
+              ]}
+              wrapper="span"
+              speed={50}
+              style={{ display: "inline-block" }}
+              repeat={0}
+            />
+          </motion.div>
+          
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
